@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+	{
+		int arr[20],index=0,number=0,max=0;
+		clrscr();
+		printf("enter the no of elements:");
+		scanf("\n%d",&number);
+		for(index=0;index<number;index++)
+			{
+				scanf("%d",&arr[index]);
+			} /*getting array elements*/
+		max=find_maximum(arr,number);
+		printf("\nmaximum element is %d",max);
+		getch();
+	}
+int find_maximum(int arr[],int size)
+	{
+		static int index=0,max=0;
+		if(index<size)
+			{
+				if(arr[index]>max)
+					{
+						max=arr[index];
+					}
+				index++;
+				find_maximum(arr,size);/*recall function*/
+			}
+		return max;
+	}
