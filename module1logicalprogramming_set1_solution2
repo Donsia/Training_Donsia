@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<conio.h>
+int check_for_input()
+    {
+	int temp=0,value1=0;
+	temp=scanf("%d",&value1);
+	if(temp!=1)
+	    {
+		printf("enter valid input");
+		scanf("%s");
+		value1=check_for_input();
+	    } /*recalls if input is character*/
+	else if(value1<0)
+	    {
+		printf("try positive value");
+		value1=check_for_input();
+	    } /*recalls if input is negative*/
+	return value1;
+    }
+int print_numbers(int value1)
+    {
+	int index=0,flag=0;
+	for(index=0;index<value1/2;index++)
+	    {
+		flag=flag+1;
+		printf("\t%d",flag);
+		flag=flag+2;
+		printf("\t%d",flag);
+	    }
+	return 0;
+    }
+void main()
+    {
+	int value=0;
+	clrscr();
+	value=check_for_input();
+	print_numbers(value);
+	getch();
+    }
+
+
+
