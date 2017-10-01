@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	FILE *fptr;
+	char name[20];
+	long int mob_no;
+	char designation[30];
+	int i;
+	clrscr();
+	fptr=fopen("employee.text","w");
+	if(fptr==NULL)
+		{
+			printf("file not exists\n");
+			return;
+		}
+	else
+		{
+			for(i=0;i<3;i++)
+				{
+					printf("enter name\n");
+					scanf("%s",name);
+					fprintf(fptr,"name= %s\n",name);
+					printf("enter mobile no\n");
+					scanf("%ld",&mob_no);
+					fprintf(fptr,"mobile=%ld\n",mob_no);
+					printf("enter designation\n");
+					scanf("%s",designation);
+					fprintf(fptr,"designation=%s\n",designation);
+				}
+		}
+	fclose(fptr);
+	getch();
+	}
+  
+  //open file
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+	{
+		FILE *fptr;
+		char filename[15];
+		char ch;
+		clrscr();
+		printf("enter file name to open\n");
+		scanf("%s",filename);
+		fptr=fopen(filename,"r");
+		if(fptr==NULL)
+			{
+				printf("cant open");
+				exit(0);
+			}
+		ch=fgetc(fptr);
+		while(ch!=EOF)
+			{
+				printf("%c",ch);
+				ch=fgetc(fptr);
+			}
+		fclose(fptr);
+		getch();
+	}
