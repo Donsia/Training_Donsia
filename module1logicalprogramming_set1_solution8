@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+    {
+	int user_id[5] = {1, 2, 3, 7, 10};
+	char pass_store[5][5]= {"12", "34", "56", "78", "90"}, position=0;
+	clrscr();
+	position = validate_user(user_id);
+	if(-1 != position)
+	    {
+		validate_password(pass_store[position],user_id[position]);
+	    }
+	getch();
+    }
+
+int validate_user(int *user_id)
+    {
+	int uid=0, position=0;
+	printf("Enter the User ID :");
+	scanf("%d",&uid);
+	for(position = 0; position < 5; position++)
+	    {
+		if(user_id[position] == uid)
+		    {
+			printf("Valid user.\n");
+			return position;
+		    }
+	    }
+	printf("Invalid User.\n");
+	return -1; /*Represents the invalid user*/
+    }
+
+int validate_password(int pass_store,int user)
+    {
+	int retry = 3;
+	char pword[5];
+	printf("Enter the password :");
+	scanf("%s",pword);
+	while(retry > 0)
+	    {
+		if(strcmp(pass_store,pword) == 0 )
+		    {
+			printf("Welcome user '%d'",user);
+			break;
+		    }
+		else
+		    {
+			retry--;
+			if(retry != 0)
+			    {
+				printf("Wrong password, still left %d time(s).", retry);
+				printf("\nEnter the password :");
+				scanf("%s",pword);
+			    }
+			 else
+			    {
+				printf("Sorry, retry exceeds. Try again after sometimes.");
+			    }
+		   }
+	    }
+	return ;
+    } /*verifying password*/
+
