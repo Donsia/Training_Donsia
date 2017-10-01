@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<conio.h>
+float get_input()
+    {
+	float number=0.0,flag=0.0;
+	flag=scanf("%f",&number);
+	if(flag!=1)
+	    {
+		printf("invalid,try valid input");
+		scanf("%s");
+		number=get_input();
+	    } /*recalls if input is character*/
+	else if(number<0)
+	    {
+		printf("try positive value");
+		number=get_input();
+	    } /*recalls if input is negative*/
+	return number;
+    }
+float find_simple_interest(float value1,float value2,float value3)
+    {
+	return (value1*value2*value3)/100;
+    }
+void main()
+    {
+	float principle=0.0,period=0.0,rate=0.0,result=0.0;
+	clrscr();
+	printf("enter principle");
+	principle=get_input();
+	printf("enter period");
+	period=get_input();
+	printf("enter rate");
+	rate=get_input();
+	result=find_simple_interest(principle,period,rate);
+	printf("%.2f",result);
+	getch();
+    }
