@@ -1,0 +1,230 @@
+#include<stdio.h>
+#include<conio.h>
+struct student
+	{
+		float cgpa;
+		char name[30];
+		int year;
+		char dept[10];
+	}s[20];
+int check_input()
+	{
+		int num=0;
+		int ret=0;
+		ret=scanf("%d",&num);
+		if (ret!=1)
+			{
+				printf("enter valid number");
+				scanf("%s");
+				num= check_input();
+			}  /*recall the function if char is entered*/
+
+		else if (num<0)
+			{
+				printf("enter positive number ");
+				num= check_input();
+			}  /*recall the function if negative number is entered*/
+		return num;
+	}
+float get_float()
+	{
+		float num=0.0;
+		int ret=0;
+		ret=scanf("%f",&num);
+		if (ret!=1)
+		{
+			printf("\nenter valid number");
+			scanf("%s");
+			num=get_float();
+		}  /*recall the function if char is entered*/
+
+		else if (num<0)
+		{
+		printf("\nenter positive number ");
+		num=get_float();
+		}  /*recall the function if negative number is entered*/
+
+	return num;
+	}
+void accept(struct student stu[],int n)
+	{
+		int i,j,k,temp;
+		float cgp;
+		for(i=0;i<n;i++)
+			{
+				printf("\nenter name:");
+				scanf("\n%s",stu[i].name);
+				printf("\nenter department:");
+				scanf("\n%s",&stu[i].dept);
+				printf("\nenter cgpa:");
+				stu[i].cgpa=get_float();
+				printf("\nenter year:");
+				stu[i].year=check_input();
+			}
+		for(i=0;i<n;i++)
+			{
+				for(j=i+1;j<n;j++)
+					{
+						if (strcmp(stu[i].name,stu[j].name)>0)
+							{
+								strcpy(temp,stu[i].name);
+								strcpy(stu[i].name,stu[j].name);
+								strcpy(stu[j].name,temp);
+								strcpy(temp,stu[i].dept);
+								strcpy(stu[i].dept,stu[j].dept);
+								strcpy(stu[j].dept,temp);
+								cgp=stu[i].cgpa;
+								stu[i].cgpa=stu[j].cgpa;
+								stu[j].cgpa=cgp;
+								k=stu[i].year;
+								stu[i].year=stu[j].year;
+								stu[j].year=k;
+
+							}
+					}
+		       }
+
+	}
+void search_by_year(struct student stu[],int n)
+	{
+		int i,y=0,count=0;
+		printf("\n(1) enter year to display students:");
+		scanf("%d",&y);
+		for(i=0;i<n;i++)
+			{
+				if(stu[i].year==y)
+					{
+						printf("\n%s",stu[i].name);
+						count++;
+					}
+			}
+		if(count==0)
+			{
+			printf("No record found\n");
+			}
+	}
+void search_by_dept(struct student stu[],int n)
+	{
+		int i,count=0;
+		char dep[10];
+		printf("\n(2) enter department to display students:");
+		scanf("%s",dep);
+		for(i=0;i<n;i++)
+			{
+				if(strcmp(stu[i].dept,dep)==0)
+					{
+						printf("\n%s",stu[i].name);
+						count++;
+					}
+			}
+		if(count==0)
+			{
+				printf("No record found\n");
+			}
+	}
+void search_for_cgpa(struct student stu[],int n)
+	{
+		int i,pos=0;
+		float max=0.0;
+		char d[10];
+		printf("\n(3) student with overall highest cgpa:");
+		for(i=0;i<n;i++)
+			{
+				if(stu[i].cgpa>max)
+					{
+						max=stu[i].cgpa;
+						pos=i;
+					}
+			}
+		printf("\nname: %s \tdept: %s \tyear: %d \tcgpa: %f",stu[pos].name,stu[pos].dept,stu[pos].year,stu[pos].cgpa);
+	}
+void search_cgpa_by_dept(struct student stu[],int n)
+	{
+		int i;
+		float max1=0.0;
+		char d[10];
+		printf("\n(4) enter department to display highest cgpa:");
+		scanf("%s",d);
+		for(i=0;i<n;i++)
+			{
+				if(strcmp(stu[i].dept,d)==0)
+					{
+						if(stu[i].cgpa>max1)
+							{
+								max1=stu[i].cgpa;
+							}
+					}
+			}
+		for(i=0;i<n;i++)
+			{
+				if(stu[i].cgpa==max1)
+					{
+						printf("\nname: %s \tdept: %s \tyear: %d \tcgpa: %f",stu[i].name,stu[i].dept,stu[i].year,stu[i].cgpa);
+					}
+			}
+	}
+void search_by_name(struct student stu[],int n)
+	{
+		int i,count=0;
+		char name1[20];
+		printf("\n(5) enter the name to display details:");
+		scanf("%s",name1);
+		for(i=0;i<n;i++)
+			{
+				if((strcmp(stu[i].name,name1)==0))
+					{
+						printf("\nname: %s \tdept: %s \tyear: %d \tcgpa: %f",stu[i].name,stu[i].dept,stu[i].year,stu[i].cgpa);
+						count++;
+					}
+			}
+		if(count==0)
+			{
+				printf("No record found\n");
+			}
+	}
+void display_all(struct student stu[],int n)
+	{
+		int i;
+		printf("\n(6) displaying all records");
+		for(i=0;i<n;i++)
+			{
+				printf("\nname: %s \tdept: %s \tyear: %d \tcgpa: %f",stu[i].name,stu[i].dept,stu[i].year,stu[i].cgpa);
+			}
+	}
+void update_cgpa(struct student stu[],int n)
+	{
+		int i,count=0;
+		char name1[20];
+		printf("\n(7) enter name of student whose cgpa is to be updated:");
+		scanf("%s",name1);
+		for(i=0;i<n;i++)
+			{
+				if(strcmp(stu[i].name,name1)==0)
+					{
+						stu[i].cgpa=stu[i].cgpa+0.5;
+						count++;
+						printf("\nname: %s \tdept: %s \tyear: %d \tcgpa: %f",stu[i].name,stu[i].dept,stu[i].year,stu[i].cgpa);
+					}
+			}
+		if(count==0)
+			{
+				printf("\no record found");
+			}
+	}
+void main()
+	{
+		int limit;
+		printf("enter the no of students:");
+		scanf("%d",&limit);
+		clrscr();
+		accept(s,limit);
+		search_by_year(s,limit);
+		search_by_dept(s,limit);
+		search_for_cgpa(s,limit);
+		search_cgpa_by_dept(s,limit);
+		search_by_name(s,limit);
+		display_all(s,limit);
+		update_cgpa(s,limit);
+		printf("\nEXIT");
+		getch();
+	}
