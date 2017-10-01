@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<conio.h>
+/*Notes of Denominations 10,50,100*/
+int check_for_input()
+    {
+	int value=0,flag=0;
+	flag=scanf("%d",&value);
+	if(flag!=1)
+	    {
+		printf("enter valid input");
+		scanf("%s");
+		value=check_for_input();
+	    } /*recall if input is character*/
+	else if(value<0)
+	    {
+		printf("try positive value");
+		value=check_for_input();
+	    } /*recall if input is negative value*/
+	return value;
+    }
+void denomination(int amount)
+    {
+	if(amount%10==0)
+	    {
+		printf("%d notes of 100\n",amount/100);
+		amount=amount%100;
+		printf("%d notes of 50\n",amount/50);
+		amount=amount%50;
+		printf("%d notes of 10\n",amount/10);
+		amount=amount%10;
+	    }
+	else
+	    {
+		printf("amount cannot be dispensed");
+	    }
+
+    }
+void main()
+    {
+	int value1;
+	clrscr();
+	value1=check_for_input();
+	denomination(value1);
+	getch();
+    }
+
