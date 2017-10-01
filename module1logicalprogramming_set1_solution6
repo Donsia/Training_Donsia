@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<conio.h>
+int validate_input()
+    {
+	int temp=0,number=0;
+	temp=scanf("%d",&number);
+	if(temp!=1)
+	    {
+		printf("invalid input,try correctly");
+		scanf("\n%s");
+		number=validate_input();
+	    } /*recall if input is character*/
+	else if(number<0)
+	    {
+		printf("try positive value\n");
+		number=validate_input();
+	    } /*recall if input is negative*/
+	return number;
+    }
+int add_digits(int value)
+    {
+	int sum=0,remainder=0;
+	while(value!=0)
+	    {
+		remainder=value%10;
+		sum=sum+remainder;
+		value=value/10;
+	    }
+	return sum;
+    } /*adding the digits*/
+void main()
+    {
+	int number=0,result=0;
+	clrscr();
+	number=validate_input();
+	result=add_digits(number);
+	printf("sum is %d",result);
+	getch();
+    }
