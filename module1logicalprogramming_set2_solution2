@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<conio.h>
+int check(char arr[],int n)
+	{
+		int index=0,count=0,flag=0,temp=0;
+		for(index=0;index<n;index++)
+			{
+				if(arr[index]>='0' && arr[index]<='9')
+					{
+						count++;
+					} /*counting digits*/
+				else if((arr[index]>='a' && arr[index]<='z') || (arr[index]>='A' && arr[index]<='Z')||(arr[index]==32))
+					{
+						if(arr[index]=='a'|| arr[index]=='e'|| arr[index]=='i'|| arr[index]=='o'|| arr[index]=='u'|| arr[index]=='A'|| arr[index]=='E'|| arr[index]=='O'|| arr[index]=='U')
+							{
+								flag++;
+							} /*counting vowels*/
+						else if(arr[index]==32)
+							{
+								temp++;
+							} /*counting white_spaces*/
+					}
+			}
+		printf("\nDigit: %d",count);
+		printf("\nVowel: %d",flag);
+		printf("\nWhite spaces: %d",temp);
+		return;
+	}
+int check_const(char arr[],int n)
+	{
+		int index=0,value=0;
+		for(index=0;index<n;index++)
+			{
+				if((arr[index]>='a'&& arr[index]<='z')||(arr[index]>='A'&& arr[index]<='Z'))
+					{
+						if(arr[index]!='a'&& arr[index]!='e'&& arr[index]!='i'&& arr[index]!='o'&& arr[index]!='u'&& arr[index]!='A'&& arr[index]!='E'&& arr[index]!='O'&& arr[index]!='U')
+							{
+								value++;
+							} /*counting consonants*/
+					}
+			}
+		printf("\nConsonants: %d",value);
+		return;
+	}
+void main()
+	{
+		char arr[100];
+		int n=0;
+		clrscr();
+		gets(arr);
+		n=strlen(arr);
+		check(arr,n);
+		check_const(arr,n);
+		getch();
+	}
+
