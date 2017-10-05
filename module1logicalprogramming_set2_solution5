@@ -12,11 +12,11 @@ void main()
 	{
 		unsigned number=0,position=0,totalbits=0;
 		clrscr();
-		printf("enter number");
+		printf("enter number"); /*decimal number*/
 		scanf("%u",&number);
-		printf("enter pos");
+		printf("enter pos"); /*starting position*/
 		scanf("%d",&position);
-		printf("enter bits");
+		printf("enter bits"); /*total no of bits in the input*/
 		scanf("%d",&totalbits);
 		printf("%u",invert(number,position,totalbits));
 		getch();
