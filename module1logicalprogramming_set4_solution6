@@ -1,0 +1,32 @@
+6.	Explain auto, register, static and extern variables.
+
+ANS:
+auto
+   auto is the default storage class.
+   It applies to local variables only and the variable is visible only inside the function in which it is declared. 
+   It dies as soon as the function execution is over. If not initialized, variables of class auto contains garbage value.
+      int number;    // by default,storage class here is auto
+      auto int number;
+      
+register
+   Variables of class register are stored in CPU registers instead of memory.
+   The scope of the variable is local to the function in which it is defined and it dies as soon as the function execution is over. 
+   It contains some garbage value if not initialized.
+      reg int number;
+      
+static
+   The scope of static variable is local to the function in which it is defined but it doesn't die when the function execution is over. 
+   The value of a static variable persists between function calls. 
+   The default initial value of static variable is 0
+      static int number=5;
+   
+extern
+   Variables of extern storage class have a global scope. 
+   We use extern variables when we want a variable to be visible outside the file in which it is declared.
+   So, an extern variable can be shared across multiple files. 
+   An extern variable remains alive as long as program execution continues. 
+   A static global variable is visible only in the file it is declared but an extern global variable is visible across all the files of a program.
+      extern int number;
+
+
+ 
