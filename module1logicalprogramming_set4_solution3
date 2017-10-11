@@ -18,4 +18,5 @@ return (0);
 /*ANS:
     Here,/* starts a comment at the end of height declaration but ends with */ only after width declaration.
     Therefore,compiler will refuses to accept width as a declared variable.
+    It will consider the line in which width is declared as a comment.
     if comment would have closed at height declaration like /* the height of the triangle */ then it will accept width as a variable declared.
