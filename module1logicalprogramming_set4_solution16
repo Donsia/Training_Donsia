@@ -1,0 +1,27 @@
+16.	The following program is supposed to print the message "Fatal Error:
+Abort" and exit when it receives bad data. But when it gets good data, it exits. Why?
+#include <iostream.h>
+ #include <stdlib.h> /* ANSI Standard only */
+
+ #define DIE \
+ cerr << "Fatal Error: Abort\n"; exit(8);
+
+ main() {
+ // A random value for testing
+ int value;
+
+ value = 1;
+ if (value < 0)
+ DIE;
+
+ cerr << "We did not die\n";
+ return (0);
+ }
+
+
+ANS:
+  Here,value 1 is a good data,it should prints "We did not die"
+  But,without braces there are two statements after if statement
+  compiler might get confused as there are no braces 
+  if statement here requires braces.
+  
