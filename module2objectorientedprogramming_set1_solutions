@@ -1,0 +1,58 @@
+1) Ans:
+option D:
+	Base class object will call base class function and derived class object will call derived class function.
+  
+2)Ans:
+  8 12
+    Base class contains two variables,size of both will be 8
+    Derived class contains one variable,but we know that derived class inherits all the properties of base class
+    So that,Derived class contains three variables(x,y,i)..
+    Therefore,size is 12
+    
+3)Ans:
+   option A:
+     Because a derived-class object has all the properties (data and functions) of a base-class object, 
+     so it can be treated just like one for all intents and purposes (including being pointed at)
+     
+4)Ans:
+   option E:
+     only destructs objects declared in the try block which eventually catches it.
+     
+5)Ans:
+    Throwing an exception out of a destructor may crash
+    
+6) Ans:
+    Struct:
+      Members of struct are public by default
+      Structure does not support the inheritance and cannot inherit another class.
+      The member variable cannot be initialized directly.
+      object is created on Stack memory.
+   Class:
+      Members of class are private by default
+      Class support the inheritance and can inherit another class.
+      The member variable can be initialized directly.
+      Object is created on Heap memory.
+      
+7)Ans:
+     Human* george = new Pilot();
+   Here,this can be made as Pilot* george = new Pilot();
+     Since,Pilot is a derived one and Human is base.
+     
+9)Ans:
+      trouble::trouble(const trouble &old) {
+      cout << "Copy constructor called\n";
+      *this = old;
+
+    *this = old    in line no 18 causes infinite looping printing that copy constructor called
+
+      
+10)Ans:
+      Attempting to call virtual function inside the destructor of a base may upsets the case.
+      Each class is responsible for seizing and releasing its own resources.
+      
+ 11)Ans:
+      Both have different directories.
+      \r \n \t will work fine in Linux,but not in the others since the directories are not same
+ 
+ 12)Ans:
+       Error message is inside "defualt",making it as default will print error message
