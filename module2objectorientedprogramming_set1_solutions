@@ -38,6 +38,47 @@ option D:
    Here,this can be made as Pilot* george = new Pilot();
      Since,Pilot is a derived one and Human is base.
      
+ 8)Ans:
+     bool checkUsername(String username)
+{
+    int index;
+    if(username.size() < 2)
+    {
+    throw "BadlengthException"
+    }
+    for (index=0;index<username.size();index++)
+	 	  {
+	 		  if(isdigit(username.[index]))
+	 		  {
+	 			  return 0;
+			  }
+		  }	 
+	 return 1;
+}
+
+int main()
+{
+    string username;
+    cin ≫ username;
+    try
+    {
+    bool isValid = checkUsername(username);
+    if(isValid)
+    {
+       cout≪ "Valid"
+    }
+    else
+    {
+       cout≪ "Invalid";
+    }
+    }
+    catch(const char* err)
+    {
+    cout<<"err";
+    }
+}
+
+
 9)Ans:
       trouble::trouble(const trouble &old) {
       cout << "Copy constructor called\n";
