@@ -72,9 +72,9 @@ int main()
        cout≪ "Invalid";
     }
     }
-    catch(const char* err)
+    catch(char* message)
     {
-    cout<<"err";
+    cout<<message;
     }
 }
 
