@@ -1,0 +1,130 @@
+//classes for computer soccer game
+//class 1
+class player
+{
+public:
+  char name[20];
+  char team[10];
+  int player_no;
+  int location;
+  void get_data()
+  {
+  cout<<"enter name:";
+  cin>>name;
+  cout<<"enter team:";
+  cin>>team;
+  cout<<"enter number";
+  cin>>player_no;
+  cout<<"enter location:";
+  cin>>location;
+  }
+  void display()
+  {
+  cout<<name<<team<<player_no<<location;
+  }
+  };
+  
+  //class 2
+  class soccerBall
+  {
+  public:
+  int volume;
+  void get_volume()
+  {
+  cin>>volume;
+  }
+  };
+  
+  //class 3
+  class gameMode
+  {
+  public:
+  void run()
+  {
+  cout<<"run";
+  }
+  void jump()
+  {
+  cout<<"jump";
+  }
+  void kick()
+  {
+  cout<<"kick";
+  }
+  };
+  
+  //class 4
+  class field
+  {
+  public:
+  char stadium[10];
+  int length;
+  int width;
+  void get_data()
+  {
+  cin>>stadium>>length>>width;
+  }
+  };
+  
+  //class 5
+  class scoreBoard
+  {
+  public:
+  int score;
+  void update_goalcount()
+  {
+  cin<<score;
+  }
+  };
+  
+  main()
+  {
+  player ob1;
+  ob1.get_data();
+  ob1.display();
+  soccerBall ob2;
+  ob2.get_volume();
+  gamemode ob3;
+  ob3.run();
+  ob3.jump();
+  ob3.kick();
+  field ob4;
+  ob4.get_data();
+  scoreBoard ob5;
+  ob5.update_goalcount();
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  }
