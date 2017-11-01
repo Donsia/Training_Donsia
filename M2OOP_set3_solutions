@@ -1,0 +1,38 @@
+class Song
+{
+protected:
+char title[20];
+char artist[20];
+char album[20];
+public:
+void get_song();
+void play();
+};
+class Album:public Song
+{
+private:
+int album_year;
+public:
+void get_album();
+};
+class Artist:public Album
+{
+public:
+void get_Artist();
+};
+class Playlist:public Song
+{
+public:
+add_song();
+};
+
+  Song,Album,Artist,Playlist are four different classes."is a" relationship exists here which implies Generalization.
+  class Album is a class song.The derived class has more specialization.
+  It reuses the elements of base class,also,it adds new methods.
+  Generalization is implemented as inheritance.
+      class song <========>class album  are closely related.
+      class Artist<========>class Album
+      class Album have the reference to the Artist
+      class Playlist=========>class Song
+      Easier to access recently played or favourite songs from playlist,since it inherits the base Song 
+  
