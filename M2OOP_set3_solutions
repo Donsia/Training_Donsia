@@ -1,3 +1,4 @@
+1)
 class Song
 {
 protected:
@@ -36,3 +37,66 @@ add_song();
       class Playlist=========>class Song
       Easier to access recently played or favourite songs from playlist,since it inherits the base Song 
   
+2)
+class Discount
+{
+public:
+float servicePremium=0.2;
+float serviceGold=0.15;
+float serviceSilver=0.1;
+float productPremium=0.1;
+float productGold=0.1;
+float productSilver=0.1;
+void get_service_discount();
+void get_product_discount();
+};
+class customer
+{
+public:
+char name[20];
+char member_type[20];
+void getname();
+void getmembertype();
+void setmembertype();
+};
+class purchase
+{
+public:
+float serviceExpense;
+float productExpense;
+get serviceExpense();
+get productExpense();
+};
+
+
+3)
+class Show
+{
+public:
+char show_name[20];
+char host_name[20];
+char guest[20];
+int date;
+};
+class Seat
+{
+public:
+int seat_id;
+int row_num;
+};
+class Booking
+{
+public:
+char username[20];
+int userid;
+int booking_no;
+int ticket_no;
+float ticketprice,newprice;
+int booking_time;
+void setPrice()
+{
+if((curr_time - booking_time)>=6)
+{
+newprice=ticketprice - (ticketprice * 0.5);
+}
+};
