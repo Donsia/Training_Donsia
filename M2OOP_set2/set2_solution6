@@ -1,0 +1,62 @@
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+int shr,smin,ssec,durmin,dursec,totaldur,sharecall;
+int destination;
+float call_cost,basiccost,off_peak_dis,share_call_dis,netcost,vat,totalcost;
+clrscr();
+cout<<"enter startime,hour:";
+cin>>shr;
+cout<<"enter starttime,min:";
+cin>>smin;
+cout<<"enter starttime,sec:";
+cin>>ssec;
+cout<<"destination:";
+cin>>destination;
+totaldur=(durmin * 60) + dursec;
+//cout<<"dur:"<<totaldur;
+if(destination<50)
+{
+call_cost=0.759 * totaldur;
+basiccost=59.400 + call_cost;
+if((shr>=19) && (shr<=6))
+{
+
+off_peak_dis=(0.4 * call_cost);
+}
+netcost=basiccost - off_peak_dis;
+vat=0.14 * netcost;
+totalcost=netcost + vat;
+}
+else if(destination>=50)
+{
+call_cost=totaldur * 89.00;
+basiccost=59.400 + call_cost;
+if((shr>=19) && (shr<=6))
+{
+off_peak_dis=(0.5 * call_cost);
+}
+cout<<"\nenter 1 if share call and 0 if not:";
+cout<<"\nsharecall?";
+cin>>sharecall;
+if(sharecall!=0)
+{
+share_call_dis=(0.5 * off_peak_dis);
+}
+netcost=basiccost - share_call_dis;
+vat=0.14 * netcost;
+totalcost=vat + netcost;
+}
+cout<<"basiccost:"<<basiccost;
+cout<<"offpeakdis:"<<off_peak_dis;
+cout<<"share_call_dis:"<<share_call_dis;
+cout<<"netcost:"<<netcost;
+cout<<"VAT:"<<vat;
+cout<<"totalcost:"<<totalcost;
+getch();
+}
+
+
+
+
