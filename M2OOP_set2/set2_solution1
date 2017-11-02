@@ -1,0 +1,51 @@
+//classes for computer soccer game
+//class 1
+class player
+{
+public:
+  char name[20];
+  char team[10];
+  int player_no;
+  int location;
+  void get_data();
+  void display();
+  };
+  //class 2
+  class soccerBall
+  {
+  public:
+  int volume;
+  void get_volume();
+  };
+  //class 3
+  class gameMode
+  {
+  public:
+  void run();
+  void jump();
+  void kick();
+  };
+  //class 4
+  class field
+  {
+  public:
+  char stadium[10];
+  int length;
+  int width;
+  void get_data();
+  };
+  //class 5
+  class scoreBoard
+  {
+  public:
+  int score;
+  void update_goalcount();
+  };
+  main()
+  {
+  player ob1;
+  soccerBall ob2;
+  gamemode ob3;
+  field ob4;
+  scoreBoard ob5;
+  }
