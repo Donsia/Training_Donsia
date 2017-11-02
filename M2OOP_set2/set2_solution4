@@ -1,0 +1,32 @@
+a)The given point,line,plane,cube,cuboid can inherit a base class which consist of position and orientation
+class shape
+{
+};
+class point:public shape
+{
+};
+class line:public point
+{
+};
+class plane:public shape
+{
+};
+class cube:public shape
+{
+};
+class cuboid:public cube
+{
+};
+
+b)baseclass
+class shape()
+{
+int position;
+int rotation;
+public:
+void setposition();
+void getposition();
+void draw();
+};
+
+ 
