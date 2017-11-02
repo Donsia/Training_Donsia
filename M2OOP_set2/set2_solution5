@@ -1,0 +1,61 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdlib.h>
+class user
+{
+public:
+ char username[20];
+ char mail_id[20];
+ int age,index;
+ void check()
+ {
+ try
+ {
+ if(age<0)
+ {
+ throw age;
+ }
+ if(age<16)
+ {
+ throw "below age error";
+ }
+ }
+ catch(int age)
+ {
+ cout<<"invalidage error";
+ }
+ catch(char* message)
+ {
+ cout<<message;
+ }
+ }
+};
+class mail:public user
+{
+public:
+void checkmail()
+{
+try
+{
+if(email.length()==0)
+{
+throw email;
+}
+}
+catch(string email)
+{
+cout<<"exception\n";
+}
+};
+void main()
+{
+user ob;
+cout<<"username:";
+cin>>ob.username;
+cout<<"mail_id:";
+cin>>ob.mail_id;
+cout<<"age:";
+cin>>ob.age;
+getch();
+}
+
