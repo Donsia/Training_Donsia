@@ -1,0 +1,24 @@
+class Mobilemanufacturer
+{
+Private:
+int IEMInum;
+char brand[10];
+char processor;
+char sim[10];
+set clipboard();
+void setbluetooth();
+void setwifi();
+};
+class Mobile
+{
+public:
+void calling();
+void sms();
+void mp3();
+void videocall();
+};
+
+The atrributes inside the class mobilemanufacturer cannot be accessed by any class.
+
+
+
