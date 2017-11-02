@@ -1,0 +1,31 @@
+class MobilePhone
+{
+protected:
+void calling();
+void sendSms();
+};
+class N1400:public MobilePhone
+{
+//inherits the properties of base
+//only features of N1400 is call & sms
+};
+class N2700:public MobilePhone
+{
+protected:
+void Fmradio();
+void Mp3();
+void Camera();
+};
+class B:MobilePhone
+{
+protected:
+void Fmradio();
+void Mp3();
+void camera();
+void recording();
+void read_send_mails();
+};
+
+The common features of all the classes are call and sms.Therefore,that two feautures are kept in a base class
+The derived classes are inheriting the common feature from the base.
+Hence,Abstraction is used here.
