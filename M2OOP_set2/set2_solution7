@@ -1,0 +1,33 @@
+class CustomVector {
+ public: 
+// constructors and other public interface goes here 
+private: 
+// private data 
+std::vector< double> elements; 
+int length; 
+};
+
+solution
+class CustomVector
+{
+public:
+   CustomVector(int length)
+   {
+   }
+   CustomVector(int length,double item[])
+   {
+   }
+   CustomVector(CustomVector &cv)
+   {
+   }//copy constructor
+  private: 
+// private data 
+std::vector< double> elements; 
+int length; 
+};
+ 
+
+first constructor will create no of elements according to the length
+second constructor will fill the double values in array
+third constructor creates the copy of previous one
+
