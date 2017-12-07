@@ -1,0 +1,98 @@
+
+source:
+
+
+#include<iostream>
+#include<vector>
+#include "employee.h"
+#include "company.h"
+void main()
+{
+	company ob2;
+	int choice;
+	cout << "enter the choice:";
+	cin >> choice;
+	while (choice)
+	{
+		switch (choice)
+		{
+		case 1:
+			ob2.get_details();
+			break;
+		case 2:
+			ob2.display();
+			break;
+		case 3:
+			ob2.search_year();
+			break;
+		case 4:
+			ob2.search_department();
+			break;
+		case 5:
+			ob2.update_pay();
+			break;
+		case 6:
+			exit(0);
+		default:
+			cout << "invalid choice";
+
+		}
+		cout << "enter the choice:";
+		cin >> choice;
+	}
+}
+
+
+
+
+company.h
+
+#ifndef company_HEADER
+#define company_HEADER
+using namespace std;
+#include "employee.h"
+#include<iostream>
+#include<vector>
+class company
+{
+public:
+	employee ob;
+	void get_details();
+	void search_year();
+	void search_department();
+	void display();
+	void update_pay();
+	void bench_detail();
+};
+
+#endif
+
+
+
+
+company.cpp
+
+
+employee.h
+
+#ifndef employee_HEADER
+#define employee_HEADER
+using namespace std;
+#include<iostream>
+#include<vector>
+#include<string>
+class employee
+{
+public:
+	int id=101;
+	vector<int> emp_id;
+	vector<string> name;
+	vector<int> year;
+	vector<string> department;
+	vector<int> pay;
+};
+
+
+
+#endif
+	
