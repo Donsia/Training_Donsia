@@ -1,0 +1,42 @@
+employee.h
+#ifndef employee_HEADER
+#define employee_HEADER
+using namespace std;
+#include<iostream>
+#include<vector>
+#include<string>
+class employee
+{
+public:
+	int id=101;
+	vector<int> emp_id;
+	vector<string> name;
+	vector<int> year;
+	vector<string> department;
+	vector<int> pay;
+};
+#endif
+
+company.h
+
+#ifndef company_HEADER
+#define company_HEADER
+using namespace std;
+#include "employee.h"
+#include "myqueue.h"
+#include<iostream>
+#include<vector>
+class company
+{
+public:
+	employee ob;
+	void get_details();
+	void search_year();
+	int check();
+	void search_department();
+	void display();
+	void update_pay();
+};
+
+#endif
+	
