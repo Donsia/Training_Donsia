@@ -1,0 +1,133 @@
+company.cpp
+
+using namespace std;
+#include "employee.h"
+#include "company.h"
+#include<iostream>
+#include<vector>
+#include<string>
+void company::get_details()
+{
+	string name, department;
+	int year=0, pay=0;
+    ob.emp_id.push_back(ob.id);
+	cout << "enter employee name\n";
+	cin >> name;
+	ob.name.push_back(name);
+	cout << "enter year of joining\n";
+	year = check();
+	ob.year.push_back(year);
+	cout << "enter department of employee\n";
+	cin >> department;
+    ob.department.push_back(department);
+	cout << "enter the pay of employee\n";
+	cin >> pay;
+	ob.pay.push_back(pay);
+	ob.id++;
+}
+void company::display()
+{
+	int index=0;
+	for (index = 0; index < ob.emp_id.size(); index++)
+	{
+		cout << ob.emp_id[index] << "\t";
+		cout << ob.name[index]<<"\t";
+		cout << ob.department[index]<<"\t";
+		cout << ob.year[index]<<"\t";
+		cout << ob.pay[index]<<"\n";
+    }
+}
+
+void company::search_year()
+{
+	int index=0,flag=0,year1;
+	cout << "enter the year";
+	year1 = check();
+		for (index = 0; index < ob.year.size(); index++)
+		{
+			if (year1 == ob.year[index])
+			{
+				cout << ob.name[index];
+				flag++;
+
+			}
+
+		}
+	if (flag == 0)
+	{
+		cout << "no records found\n";
+	}
+}
+int company::check()
+{
+	int number=0;
+	cout << "Enter an integer: ";
+	cin >> number;
+	while (!cin)
+	{
+		cout << "That was no integer! Please enter an integer: ";
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(),'\n');
+		cin >> number;
+	}
+	return number;
+};
+	
+void company::search_department()
+{
+	string department1;
+	int temp = 0, index=0,position=0,flag=0;
+	cout << "enter department to search\n";
+	cin >> department1;
+	for (index = 0; index < ob.department.size(); index++)
+	{
+		if (ob.department[index] == department1)
+		{
+			if (temp < ob.pay[index])
+			{
+				temp = ob.pay[index];
+				position = index;
+				flag++;
+			}
+			
+		}
+	
+	}
+	if (flag != 0)
+	{
+		
+		cout << "name:" << ob.name[position] << "\t";
+		cout << "department:" << department1 << "\t";
+		cout << "employee id:" << ob.emp_id[position] << "\t";
+		cout << "year:" << ob.year[position] << "\t";
+		cout << "salary pay:" << ob.pay[position] << "\t";
+	}
+	else
+	{
+		cout << "no records found\n";
+	}
+}
+		
+void company::update_pay()
+{
+	int emp_id=0,index=0,flag=0;
+	cout << "enter employee id to search\n";
+	emp_id=check();
+    for (index = 0; index < ob.emp_id.size(); index++)
+	{
+		if (emp_id == ob.emp_id[index])
+		{
+			ob.pay[index] =ob.pay[index]+( ob.pay[index]*0.05);
+
+			cout << "updated salary is:" << ob.pay[index];
+			flag++;
+        }
+	}
+	if (flag == 0)
+	{
+		cout << "no records found";
+	}
+}
+
+　
+　
