@@ -1,0 +1,78 @@
+myqueue.h
+
+#ifndef myqueue_HEADER
+#define myqueue_HEADER
+using namespace std;
+#include<iostream>
+#include<vector>
+#include<string>
+class myqueue
+{
+public:
+	vector<int> bench_id;
+	vector<int> projectmember_id;
+	int element1, element2,size; 
+	void push_id();
+	void pop_id();
+	void display();
+	void result_queue();
+};
+#endif
+
+myqueue.cpp
+
+#include "myqueue.h"
+#include<iostream>
+#include<vector>
+#include "employee.h"
+#include "company.h"
+#include "myqueue.h"
+void myqueue::push_id()
+{
+	int id1,id2,size,i;
+	cout << "enter the size";
+	cin >> size;
+	for (i = 0; i < size; i++)
+	{
+		cout << "get id of bench employee";
+		cin >> id1;
+		bench_id.push_back(id1);
+		cout << "get id of member in project";
+		cin >> id2;
+		projectmember_id.push_back(id2);
+	}
+
+}
+void myqueue::display()
+{
+	int index;
+	for (index = 0; index < size; index++)
+	{
+		cout << bench_id[index];
+	}
+	for (index = 0; index < size; index++)
+	{
+		cout << projectmember_id[index];
+	}
+}
+void myqueue::pop_id()
+{
+	element1 = bench_id.back();
+	element2 = projectmember_id.back();
+	bench_id.pop_back();
+	projectmember_id.pop_back();
+}
+void myqueue::result_queue()
+{
+	int index;
+	for (index = 0; index < size; index++)
+	{
+		cout << bench_id[index];
+    }
+	for (index = 0; index < size; index++)
+	{
+		cout << bench_id[index];
+	}
+}
+	
+  
