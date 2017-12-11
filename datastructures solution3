@@ -1,0 +1,50 @@
+source.cpp
+#include<iostream>
+#include<vector>
+#include "employee.h"
+#include "company.h"
+#include "myqueue.h"
+void main()
+{
+	company ob2;
+	myqueue ob3;
+	int choice;
+	cout << "enter the choice:";
+	cin >> choice;
+
+	while (1)
+	{
+		switch (choice)
+		{
+		case 1:
+			ob2.get_details();
+			break;
+		case 2:
+			ob2.display();
+			break;
+		case 3:
+			ob2.search_year();
+			break;
+		case 4:
+			ob2.search_department();
+			break;
+		case 5:
+			ob2.update_pay();
+			break;
+		case 6:
+			ob3.push_id();
+			ob3.pop_id();
+			ob3.display();
+			ob3.result_queue();
+			break;
+		case 7:
+			exit(0);
+	
+		default:
+			cout << "invalid choice";
+
+		}
+		cout << "enter the choice:";
+		cin >> choice;
+	}
+}
